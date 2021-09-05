@@ -2,4 +2,8 @@
 rootProject.name = 'otus_java_2021_06_HW'
 include('app')
 include 'hw01-gradle'
+include 'hw02-gradle2'
+include 'hw02-gradle2-libApi'
+include 'hw02-gradle2-libApiUse'
+include 'hw03-qa'
 
