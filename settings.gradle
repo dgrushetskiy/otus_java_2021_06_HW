@@ -5,4 +5,7 @@ include 'hw02-gradle2'
 include 'hw02-gradle2-libApi'
 include 'hw02-gradle2-libApiUse'
 include 'hw03-qa'
+include 'hw04-generics'
+include 'hw04-generics'
+include 'hw04-generics'
 
