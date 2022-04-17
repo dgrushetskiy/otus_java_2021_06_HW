@@ -17,7 +17,7 @@ public class CustomerService {
         Map.Entry<Customer, String> entry = treeMap.higherEntry(customer);
         return entry == null
                 ? null
-                : Map.entry(entry.getKey().copyCustomer(), entry.getValue());// это "заглушка, чтобы скомилировать"
+                : Map.entry(entry.getKey().copyCustomer(), entry.getValue());
     }
 
     public void add(Customer customer, String data) {
