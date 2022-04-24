@@ -5,7 +5,12 @@ plugins {
 sourceCompatibility = JavaVersion.VERSION_13
 targetCompatibility = JavaVersion.VERSION_13
 
+repositories {
+    mavenCentral()
+}
+
 dependencies {
+    implementation "org.slf4j:slf4j-log4j12"
 }
 
 
