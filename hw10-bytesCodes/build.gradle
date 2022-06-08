@@ -27,14 +27,3 @@ tasks.withType(JavaCompile) {
         encoding = 'UTF-8'
     }
 }
-
-shadowJar {
-    archiveBaseName.set('hw04garbageCollector')
-    archiveVersion.set('0.1')
-    archiveClassifier.set('')
-    manifest {
-        attributes 'Main-Class': 'calculator.CalcDemo'
-    }
-}
-
-tasks.build.dependsOn tasks.shadowJar
