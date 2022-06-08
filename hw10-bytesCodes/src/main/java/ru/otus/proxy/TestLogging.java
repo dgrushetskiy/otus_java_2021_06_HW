@@ -1,21 +1,15 @@
 package ru.otus.proxy;
 
-public class TestLogging {
+import ru.otus.Log;
+
+public interface TestLogging {
 
     @Log
-    public void calculation(int x) {
-        System.out.println(x);
-    }
+    void calculation(int param);
 
     @Log
-    public void calculation(int x, int y) {
-        int sum = x + y;
-        System.out.println(sum);
-    }
+    void calculation(int param, int param1);
 
     @Log
-    public void calculation(int x, int y, String z) {
-        String sum = z + x + y;
-        System.out.println(sum);
-    }
+    void calculation(int param, String param1);
 }

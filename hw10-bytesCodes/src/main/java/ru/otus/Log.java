@@ -1,4 +1,4 @@
-package ru.otus.proxy;
+package ru.otus;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

@@ -7,17 +7,34 @@ sourceCompatibility = JavaVersion.VERSION_17
 targetCompatibility = JavaVersion.VERSION_17
 
 dependencies {
-    implementation 'org.ow2.asm:asm-commons'
+    // This dependency is used by the application.
+    testImplementation ('org.junit.jupiter:junit-jupiter-api')
+    testImplementation ('org.junit.jupiter:junit-jupiter-engine')
+    testImplementation ('org.assertj:assertj-core')
+    testImplementation ('org.mockito:mockito-core')
+    testImplementation ('org.mockito:mockito-junit-jupiter')
 }
 
-task shadowProxyDemo(type: Jar, dependsOn: shadowJar) {
-    archiveBaseName.set('proxyDemo')
-    manifest {
-        attributes 'Main-Class': 'ru.otus.proxy.Proxy'
-        attributes 'Premain-Class': 'ru.otus.agent.Agent'
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
     }
-    from zipTree(shadowJar.archiveFile)
 }
 
+tasks.withType(JavaCompile) {
+    options.with {
+        encoding = 'UTF-8'
+    }
+}
 
-tasks.build.dependsOn tasks.shadowProxyDemo
+shadowJar {
+    archiveBaseName.set('hw04garbageCollector')
+    archiveVersion.set('0.1')
+    archiveClassifier.set('')
+    manifest {
+        attributes 'Main-Class': 'calculator.CalcDemo'
+    }
+}
+
+tasks.build.dependsOn tasks.shadowJar
