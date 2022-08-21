@@ -5,6 +5,9 @@ import ru.otus.atm.exceptions.AtmException;
 import java.util.ArrayList;
 import java.util.EnumMap;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Cell {
     private static final String ATM_NOT_WORK = "В банкомате закончились купюры данного номинала";
@@ -36,13 +39,28 @@ public class Cell {
                 .mapToInt(Integer::intValue).sum();
     }
 
-    public List<Integer> getBanknoteList() {
+    public List<Integer> getBanknoteListForEach() {
         List<Integer> values = new ArrayList<>();
         atmState.forEach((key, value) -> {
-            for (int i = 0; i < value; ++i) {
-                values.add(key.getValue());
-            }
+            extracted(values, key, value);
         });
         return values;
+    }
+
+    public List<Integer> getBanknoteListForMap() {
+        List<Integer> values = new ArrayList<>();
+        atmState.entrySet()
+                .stream()
+                .map(e -> {
+                    extracted(values, e.getKey(), e.getValue());
+                    return values;
+                });
+        return values;
+    }
+
+    private void extracted(List<Integer> values, Denomination key, Integer value) {
+        for (int i = 0; i < value; ++i) {
+            values.add(key.getValue());
+        }
     }
 }

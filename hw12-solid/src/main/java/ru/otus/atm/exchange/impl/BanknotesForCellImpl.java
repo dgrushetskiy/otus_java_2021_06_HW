@@ -29,7 +29,7 @@ public class BanknotesForCellImpl implements BanknotesForCell {
     }
 
     private List<Integer> stateСellBanknote() {
-        List<Integer> state = cell.getBanknoteList();
+        List<Integer> state = cell.getBanknoteListForEach();
         state.sort(Comparator.reverseOrder());
         return state;
     }
