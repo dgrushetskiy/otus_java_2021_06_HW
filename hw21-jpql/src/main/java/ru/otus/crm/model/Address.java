@@ -46,6 +46,12 @@ public class Address implements Cloneable {
         this.street = street;
     }
 
+    public Address(Long id, String street, List<Client> clients) {
+        this.id = id;
+        this.street = street;
+        this.clients = clients;
+    }
+
     @Override
     protected Address clone() {
         return new Address(this.id, this.street);

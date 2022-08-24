@@ -38,6 +38,13 @@ public class Client implements Cloneable {
         this.name = name;
     }
 
+    public Client(Long id, String name,  Address address, List<Phone> phones) {
+        this.id = id;
+        this.name = name;
+        this.phones = phones;
+        this.address = address;
+    }
+
     @Override
     public Client clone() {
         Client clonedClient = new Client(this.id, this.name);
